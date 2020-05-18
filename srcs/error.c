@@ -37,7 +37,7 @@ int		bigger_int(int argc, char **argv)
 	i = 0;
 	while (i < argc)
 	{
-		if (ft_atoi(argv[i]) > MAX_INT || ft_atoi(argv[i]) <= MIN_INT)//windows update
+		if (ft_atoi(argv[i]) > MAX_INT || ft_atoi(argv[i]) < MIN_INT)
 			return (0);
 		i++;
 	}
