@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: twebb <marvin@42.fr>                       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/05/23 10:07:05 by twebb             #+#    #+#              #
-#    Updated: 2019/06/11 11:04:59 by twebb            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
 CC = gcc $(FLAGS)
@@ -32,7 +20,7 @@ SRC_NAME := ft_bzero.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcpy.c \
 			ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
 			ft_lstnew.c get_next_line.c \
 
-OBJ_NAME := $(SRC_NAME:.c=.o) #everything in File, but change .c to .o
+OBJ_NAME := $(SRC_NAME:.c=.o)
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
@@ -45,19 +33,16 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	@$(CC) -I$(INC_PATH) -o $@ -c $<
 
-$(NAME): $(OBJ) $(INC_PATH)  #libft.a: ft_atoi.o
+$(NAME): $(OBJ) $(INC_PATH)
 	@ar rcs $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "Panda built a bunny"
 
 clean:
 	@rm -f $(OBJ)
 	@rm -f .o
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
-	@echo "Panda ate a bunny"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Panda laid schematics for a bunny"
 
 re: fclean all

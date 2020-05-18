@@ -46,12 +46,10 @@ all: $(NAME_1) $(NAME_2)
 $(NAME_1): $(OBJ_1)
 	make -C $(LIB_PATH) re
 	$(CC) $(LIB) $(INC) $(OBJ_1) -o $(NAME_1)
-	@echo "11111111111111111111111111"
 
 $(NAME_2): $(OBJ_2)
 	make -C $(LIB_PATH) re
 	$(CC) $(LIB) $(INC) $(OBJ_2) -o $(NAME_2)
-	@echo "22222222222222222222222222"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	mkdir -p $(OBJ_PATH)
